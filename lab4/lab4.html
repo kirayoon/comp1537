@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: monospace;
+            color: rgb(2, 43, 44)
+        }
+
+        header {
+            text-align: center;
+        }
+
+        nav {
+            background-color: rgb(2, 43, 44);
+        }
+
+        nav a {
+            color: wheat;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px;
+            width: 90px;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: wheat;
+            color: rgb(2, 43, 44)
+        }
+
+        #lastLink {
+            float: right;
+        }
+
+        section {
+            width: 70%;
+            float: left;
+        }
+
+        aside {
+            width: 30%;
+            float: right;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: rgb(194, 207, 203);
+            padding: 20px;
+            margin-top: 5px;
+        }
+
+        .card img {
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            clear: both;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        main {
+            clear: both
+        }
+
+        @media screen and (max-width: 500px) {
+            section {
+                width: 100%;
+                float: none;
+            }
+
+            aside {
+                width: 100%;
+                float: none;
+                padding-left: 0px;
+            }
+
+            nav a {
+                width: 100%
+            }
+
+            #lastLink {
+                float: none;
+            }
+        }
+
+        h2 {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>This is a Header</h1>
+        <p>This should be responsive</p>
+    </header>
+    <nav>
+        <a href="">Link 1</a>
+        <a href="">Link 2</a>
+        <a href="">Link 3</a>
+        <a href="" id="lastLink">Link 4</a>
+    </nav>
+    <main>
+        <section>
+            <div class="card">
+                <h2>Title</h2>
+                <h3>Title Description</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ratione placeat doloribus eveniet quam,
+                enim quia ullam aliquam, non impedit quas maxime velit optio delectus numquam sint fugit! Maxime, harum.
+            </div>
+
+            <div class="card">
+                <h2>Title</h2>
+                <h3>Title Description</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, est nihil beatae natus nostrum modi,
+                repudiandae dignissimos quas ducimus doloribus praesentium minima ab veritatis suscipit optio illum,
+                inventore laudantium explicabo!
+                <br><br>
+                <img src="https://picsum.photos/id/1056/536/354" width="200px" alt="">
+                <img src="https://picsum.photos/id/1037/536/354" width="200px" alt="">
+                <img src="https://picsum.photos/id/1043/536/354" width="200px" alt="">
+                <img src="https://picsum.photos/id/1044/536/354" width="200px" alt="">
+                <img src="https://picsum.photos/id/1049/536/354" width="200px" alt="">
+            </div>
+        </section>
+
+        <aside>
+            <div class="card">
+                <h2>Title</h2>
+                <h3>Title Description</h3>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque ipsam, quae iure fugit illo cupiditate
+                tenetur veritatis, officiis repellat earum nihil id reprehenderit itaque voluptate dolorum velit dolore
+                blanditiis asperiores!
+            </div>
+
+        </aside>
+
+    </main>
+    <footer>
+        <h1>This is a Footer</h1>
+        <p>-Kira Yoon-</p>
+    </footer>
+</body>
+
+</html>
