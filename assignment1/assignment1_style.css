@@ -18,7 +18,7 @@ header {
 h1 {
     font-family: serif;
     margin-bottom: 0px;
-    font-size: 38px;
+    font-size: 32px;
     font-weight: lighter;
 }
 
@@ -34,7 +34,7 @@ sup {
 h3 {
     font-weight: normal;
     color: grey;
-    font-size: 95%;
+    font-size: 110%;
 }
 
 nav {
@@ -45,16 +45,19 @@ nav {
     padding-right: 10px;
     box-sizing: border-box;
     background-color: #f6f6f6;
+    border: 1px solid darkgray;
 }
 
 #top_nav {
     margin-top: 80px;
+    margin-bottom: 0px;
 }
 
 .hr_line {
     margin: 0px;
+    margin-top: 3px;
+    margin-bottom: 3px;
     width: 90%;
-    float: center
 }
 
 .remove_marg {
@@ -68,8 +71,8 @@ nav {
 section {
     width: 85%;
     float: right;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
 }
 
@@ -83,8 +86,8 @@ table {
     box-sizing: border-box;
     text-align: center;
     padding: 3px;
-    margin-top: 15px;
-    margin-left: 15px;
+    margin: 15px;
+    margin-right: 0px;
     float: right;
 }
 
@@ -158,6 +161,17 @@ h2 {
     width: 187px;
 }
 
-#family_photo_caption {
+.photo_caption {
     text-align: left;
+}
+
+#reign_photo {
+    float: left;
+    width: 165px;
+    margin: 15px;
+    margin-left: 0px;
+}
+
+.double_space {
+    line-height: 150%;
 }
