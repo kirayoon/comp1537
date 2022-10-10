@@ -1,5 +1,6 @@
 body {
     font-family: sans-serif;
+    font-size: 15px;
 }
 
 p {
@@ -17,12 +18,13 @@ header {
 h1 {
     font-family: serif;
     margin-bottom: 0px;
-    font-size: 34px;
+    font-size: 38px;
+    font-weight: lighter;
 }
 
-#top {
-    margin: 0px;
-    padding-bottom: 20px
+#subtitle {
+    padding-bottom: 20px;
+    font-size: small;
 }
 
 sup {
@@ -42,7 +44,7 @@ nav {
     padding-left: 10px;
     padding-right: 10px;
     box-sizing: border-box;
-    background-color: #FAF9F6;
+    background-color: #f6f6f6;
 }
 
 #top_nav {
@@ -51,7 +53,7 @@ nav {
 
 .hr_line {
     margin: 0px;
-    width: 70%;
+    width: 90%;
     float: center
 }
 
@@ -72,20 +74,26 @@ section {
 }
 
 #info_box {
-    float: right;
     width: 290px;
-    margin-left: 10px;
 }
 
 table {
-    border: 1px solid;
+    border: 1px solid darkgray;
+    background-color: #f6f6f6;
     box-sizing: border-box;
     text-align: center;
-    padding: 5px;
+    padding: 3px;
+    margin-top: 15px;
+    margin-left: 15px;
+    float: right;
 }
 
-#table_head {
+.table_head {
     background-color: #decd87;
+}
+
+td {
+    font-size: small;
 }
 
 #table_photo {
@@ -93,13 +101,26 @@ table {
     width: 100%;
 }
 
+.table_left {
+    text-align: left;
+    width: 40%;
+    vertical-align: top;
+    font-size: small;
+}
+
+.table_right {
+    text-align: left;
+    font-size: small;
+}
+
 #contents_box {
     float: left;
     width: 350px;
-    border: 1px solid;
+    border: 1px solid darkgray;
     padding-left: 10px;
     font-size: 95%;
-    background-color: #FAF9F6;
+    background-color: #f6f6f6;
+    line-height: 150%;
 }
 
 #contents_head {
@@ -124,4 +145,19 @@ h2 {
 
 #family {
     clear: both;
+    display: block;
+}
+
+#family_subtitle {
+    text-indent: 15px;
+    font-style: italic;
+    font-size: small;
+}
+
+#family_photo {
+    width: 187px;
+}
+
+#family_photo_caption {
+    text-align: left;
 }
