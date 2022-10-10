@@ -175,3 +175,8 @@ h2 {
 .double_space {
     line-height: 150%;
 }
+
+ol#citations_list {
+    column-count: 3;
+    column-gap: 30px;
+}
