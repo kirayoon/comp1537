@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function compute_button_handle() {
+        r = $("#radius").val();
+        $("#result").html("<br>" + r * r * Math.PI);
+      }
+
+      function setup() {
+        $("#compute_button").click(compute_button_handle);
+      }
+
+      $(document).ready(setup);
+    </script>
+  </head>
+  <body>
+    Please enter the radius of circle: <input type="text" name="" id="radius" />
+    <input type="submit" value="Click me" id="compute_button" />
+    <p id="result"></p>
+  </body>
+</html>
