@@ -1,0 +1,123 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 5</title>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+      box-sizing: border-box;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    nav {
+      background-color: black;
+      overflow: hidden;
+    }
+
+    nav a {
+      display: block;
+      color: wheat;
+      float: left;
+      padding: 10px;
+      text-decoration: none;
+      text-align: center;
+      padding: 14px 16px;
+    }
+
+    nav a:hover {
+      color: black;
+      background-color: wheat;
+    }
+
+    #lastLink {
+      float: right;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 2%;
+    }
+
+    .img_container {
+      width: 30%;
+      float: left;
+      margin-left: calc(10% / 2);
+    }
+
+    #centered_div {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    footer {
+      clear: both;
+      text-align: center;
+      padding: 3em;
+    }
+
+    footer img {
+      width: 40px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .img_container {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      #centerd_div {
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Responsive Web Gallery</h1>
+  </header>
+  <nav>
+    <a href="">Link 1</a>
+    <a href="">Link 2</a>
+    <a href="">Link 3</a>
+    <a href="" id="lastLink">Link 4</a>
+  </nav>
+  <main>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga delectus
+      sunt sed necessitatibus quibusdam totam. Vero, velit quasi fugit sequi
+      perspiciatis inventore repudiandae consequatur, sint explicabo accusamus
+      temporibus, aliquam perferendis ipsa similique blanditiis error delectus
+      id. Porro animi, dicta aut quo ipsam modi, laborum eveniet, nulla natus
+      quis praesentium eaque.
+    </p>
+
+    <div id="img_row">
+      <div id="centered_div">
+        <div class="img_container" ; style="margin-left: 0px">
+          <img src="https://picsum.photos/300/200?random=1" alt="" />
+        </div>
+        <div class="img_container">
+          <img src="https://picsum.photos/300/200?random=2" alt="" />
+        </div>
+        <div class="img_container">
+          <img src="https://picsum.photos/300/200?random=3" alt="" />
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p> Copyright &copy Kira Yoon 2022</p>
+    <img src="./twitter.png" alt="">
+    <img src="./instagram.png" alt="">
+    <img src="./facebook.png" alt="">
+  </footer>
+</body>
+
+</html>
