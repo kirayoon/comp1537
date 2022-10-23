@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    function compute_leap_or_not() {
+      x = $("#year_input").val();
+
+      if (x % 4 != 0) {
+        $("#result").html(" not a leap year");
+      } else if (x % 100 != 0) {
+        $("#result").html(" is a leap year");
+      } else if (x % 400 != 0) {
+        $("#result").html(" is a common year");
+      } else {
+        $("#result").html(" is a leap year");
+      }
+    }
+
+    function setup() {
+      $("#compute_leap_or_not").click(compute_leap_or_not);
+    }
+
+    $(document).ready(setup);
+  </script>
+</head>
+
+<body>
+  <h1>Leap Year</h1>
+  Please enter the year: <input type="year" id="year_input" />
+  <input type="submit" id="compute_leap_or_not" />
+  <p id="result"></p>
+</body>
+
+</html>
