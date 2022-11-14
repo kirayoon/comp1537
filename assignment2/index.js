@@ -33,6 +33,12 @@ setup = function () {
     display_page();
   });
 
+  $("#pages").change(() => {
+    PAGE_SIZE = $("#pageSize option:selected").val();
+
+    console.log(PAGE_SIZE);
+  });
+
   $("body").on("click", ".backdropBtn", function () {
     $("#backdropImage").html(
       `<img src="http://image.tmdb.org/t/p/w500/${$(this).attr(
