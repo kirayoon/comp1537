@@ -2,8 +2,9 @@ var PAGE_SIZE;
 var CURRENT_PAGE = 1;
 
 display_page = function () {
+  var movieTitle = $("#searchTerm").val();
   $.ajax({
-    url: "https://api.themoviedb.org/3/movie/top_rated?api_key=f0a38761eabbbebf5b14fa1c412ba063",
+    url: `https://api.themoviedb.org/3/search/movie?api_key=f0a38761eabbbebf5b14fa1c412ba063&query=${movieTitle}&language=en-US&page=1&include_adult=false`,
     type: "GET",
     success: function (data) {
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
@@ -29,14 +30,15 @@ display_page = function () {
 };
 
 setup = function () {
+  PAGE_SIZE = $("#pageSize option:selected").val();
+
   $("#search_btn").click(() => {
     display_page();
   });
 
-  $("#pages").change(() => {
+  $("#pageSize").change(() => {
     PAGE_SIZE = $("#pageSize option:selected").val();
-
-    console.log(PAGE_SIZE);
+    console.log("page size:", PAGE_SIZE);
   });
 
   $("body").on("click", ".backdropBtn", function () {
