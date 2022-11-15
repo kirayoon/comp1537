@@ -45,13 +45,18 @@
         </select>
         <br />
         <label for="searchTerm">Please enter search term:</label>
-        <input type="text" name="searchTerm" id="searchTerm" />
+        <input type="text" id="searchTerm" value="300" />
         <br />
         <button id="search_btn">Search!</button><br />
-        <button id="prev_btn">Prev</button>
-        <p>buttons to be added</p>
-        <button id="next_btn">Next</button>
+        <section style="display: none">
+          <button id="first">First</button>
+          <button id="prev_btn">Prev</button>
+          <span id="pageNum"></span>
+          <button id="next_btn">Next</button>
+          <button id="last">Last</button>
+        </section>
       </div>
+      <div id="movies"></div>
     </main>
 
     <aside>

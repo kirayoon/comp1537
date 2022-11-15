@@ -2,6 +2,8 @@ var PAGE_SIZE;
 var CURRENT_PAGE = 1;
 
 display_page = function () {
+  $("#movies").empty();
+  $("#pageNum").empty();
   var movieTitle = $("#searchTerm").val();
   $.ajax({
     url: `https://api.themoviedb.org/3/search/movie?api_key=f0a38761eabbbebf5b14fa1c412ba063&query=${movieTitle}&language=en-US&page=1&include_adult=false`,
@@ -9,8 +11,23 @@ display_page = function () {
     success: function (data) {
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
       let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + PAGE_SIZE;
+      let result_length = data.results.length;
+      let total_pages = Math.ceil(result_length / PAGE_SIZE);
+
+      $("section").css({
+        display: "block",
+      });
+
+      for (let i = 1; i <= total_pages; i++) {
+        $("#pageNum").append(
+          `
+            <span><button id=${i}>${i}</button></span>
+          `
+        );
+      }
+
       for (i = start_index; i < end_index; i++) {
-        $("main").append(
+        $("#movies").append(
           `
             <div>
             <h4 style="margin-bottom: 0; margin-top: 5px">${data.results[i].title}</h4>
@@ -22,7 +39,7 @@ display_page = function () {
             <button backdropName="${data.results[i].backdrop_path}" name="${data.results[i].title}" class="backdropBtn">BackDrop Image</button>
             <hr>
             </div>
-            `
+          `
         );
       }
     },
@@ -38,7 +55,6 @@ setup = function () {
 
   $("#pageSize").change(() => {
     PAGE_SIZE = $("#pageSize option:selected").val();
-    console.log("page size:", PAGE_SIZE);
   });
 
   $("body").on("click", ".backdropBtn", function () {
