@@ -1,7 +1,22 @@
 var PAGE_SIZE;
 var CURRENT_PAGE = 1;
+var TOTAL_PAGES;
 
-display_page = function () {
+function displayPageNum(total_pages) {
+  for (let i = 1; i <= total_pages; i++) {
+    $("#pageNum").append(
+      `
+        <span>
+        <button id="btn${i}" value="${i}">
+        ${i}
+        </button>
+        </span>
+      `
+    );
+  }
+}
+
+function displayPage() {
   // empty page when search button or new page size is clicked
   $("#movies").empty();
   $("#pageNum").empty();
@@ -14,29 +29,18 @@ display_page = function () {
     success: function (data) {
       // set page number buttons
       let result_length = data.results.length;
-      let total_pages = Math.ceil(result_length / PAGE_SIZE);
+      let TOTAL_PAGES = Math.ceil(result_length / PAGE_SIZE);
 
       $("section").css({
         display: "block",
       });
 
-      for (let i = 1; i <= total_pages; i++) {
-        $("#pageNum").append(
-          `
-            <span>
-            <button id="btn${i}" value="${i}">
-            ${i}
-            </button>
-            </span>
-          `
-        );
-      }
+      displayPageNum(TOTAL_PAGES);
 
       // display first page of movie data
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
-      let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + PAGE_SIZE;
-      console.log("current page: " + CURRENT_PAGE);
-      console.log("page size", PAGE_SIZE);
+      let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + Number(PAGE_SIZE);
+      console.log(CURRENT_PAGE, PAGE_SIZE, end_index);
       for (i = start_index; i < end_index; i++) {
         $("#movies").append(
           `
@@ -61,24 +65,23 @@ display_page = function () {
       }
     },
   });
-};
+}
 
 setup = function () {
   PAGE_SIZE = $("#pageSize option:selected").val();
 
   $("#search_btn").click(() => {
-    display_page();
+    displayPage();
   });
 
   $("#pageSize").change(() => {
     PAGE_SIZE = $("#pageSize option:selected").val();
-    display_page();
+    displayPage();
   });
 
   $("#pageNum").on("click", "button", function () {
     CURRENT_PAGE = $(this).val();
-    console.log(CURRENT_PAGE);
-    display_page();
+    displayPage();
   });
 
   $("body").on("click", ".backdropBtn", function () {
