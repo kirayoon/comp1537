@@ -14,6 +14,16 @@ function displayPageNum(total_pages) {
       `
     );
   }
+
+  $("#first_btn, #last_btn").css({
+    display: "inline-block",
+  });
+
+  $(".page_btn").click(() => {
+    $("#prev_btn, #next_btn").css({
+      display: "inline-block",
+    });
+  });
 }
 
 function displayPage() {
