@@ -24,7 +24,7 @@ display_page = function () {
         $("#pageNum").append(
           `
             <span>
-            <button id="btn${i}">
+            <button id="btn${i}" value="${i}">
             ${i}
             </button>
             </span>
@@ -35,17 +35,25 @@ display_page = function () {
       // display first page of movie data
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
       let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + PAGE_SIZE;
+      console.log("current page: " + CURRENT_PAGE);
+      console.log("page size", PAGE_SIZE);
       for (i = start_index; i < end_index; i++) {
         $("#movies").append(
           `
             <div>
-            <h4 style="margin-bottom: 0; margin-top: 5px">${data.results[i].title}</h4>
+            <h4 style="margin-bottom: 0; margin-top: 5px">
+            #${i + 1} <br> 
+            Title: ${data.results[i].title}</h4>
             <p style="margin-top: 5px">
-            ${data.results[i].overview}
+            Description: ${data.results[i].overview}
             </p>
-            <img src="http://image.tmdb.org/t/p/w500/${data.results[i].poster_path}" 
+            <img src="http://image.tmdb.org/t/p/w500/${
+              data.results[i].poster_path
+            }" 
             style="width: 100px">
-            <button backdropName="${data.results[i].backdrop_path}" name="${data.results[i].title}" class="backdropBtn">BackDrop Image</button>
+            <button backdropName="${data.results[i].backdrop_path}" name="${
+            data.results[i].title
+          }" class="backdropBtn">BackDrop Image</button>
             <hr>
             </div>
           `
@@ -64,6 +72,12 @@ setup = function () {
 
   $("#pageSize").change(() => {
     PAGE_SIZE = $("#pageSize option:selected").val();
+    display_page();
+  });
+
+  $("#pageNum").on("click", "button", function () {
+    CURRENT_PAGE = $(this).val();
+    console.log(CURRENT_PAGE);
     display_page();
   });
 
