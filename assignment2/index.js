@@ -38,10 +38,11 @@ function displayPage() {
     success: function (data) {
       // set page numbering
       let result_length = data.results.length;
-      let TOTAL_PAGES = Math.ceil(result_length / PAGE_SIZE);
+      TOTAL_PAGES = Math.ceil(result_length / Number(PAGE_SIZE));
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
-      let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + Number(PAGE_SIZE);
-      console.log(CURRENT_PAGE, PAGE_SIZE, start_index, end_index);
+      let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + PAGE_SIZE;
+      
+      console.log(CURRENT_PAGE, PAGE_SIZE, start_index, end_index, TOTAL_PAGES);
 
       displayPageNum(TOTAL_PAGES);
 
@@ -76,14 +77,14 @@ function displayPage() {
 }
 
 setup = function () {
-  PAGE_SIZE = $("#pageSize option:selected").val();
+  PAGE_SIZE = Number($("#pageSize option:selected").val());
 
   $("#search_btn").click(() => {
     displayPage();
   });
 
   $("#pageSize").change(() => {
-    PAGE_SIZE = $("#pageSize option:selected").val();
+    PAGE_SIZE = Number($("#pageSize option:selected").val());
     displayPage();
   });
 
@@ -97,7 +98,6 @@ setup = function () {
     displayPage();
   });
 
-  // need to fix (TOTAL_PAGES is undefined)
   $("#last_btn").click(() => {
     CURRENT_PAGE = TOTAL_PAGES;
     displayPage();
@@ -110,10 +110,9 @@ setup = function () {
     }
   });
 
-  // need to fix (TOTAL_PAGES is undefined)
   $("#next_btn").click(() => {
     if (CURRENT_PAGE < TOTAL_PAGES) {
-      CURRENT_PAGE = CURRENT_PAGE + 1;
+      CURRENT_PAGE = Number(CURRENT_PAGE) + 1;
       displayPage();
     }
   });
