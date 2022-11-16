@@ -92,6 +92,32 @@ setup = function () {
     displayPage();
   });
 
+  $("#first_btn").click(() => {
+    CURRENT_PAGE = 1;
+    displayPage();
+  });
+
+  // need to fix (TOTAL_PAGES is undefined)
+  $("#last_btn").click(() => {
+    CURRENT_PAGE = TOTAL_PAGES;
+    displayPage();
+  });
+
+  $("#prev_btn").click(() => {
+    if (CURRENT_PAGE > 1) {
+      CURRENT_PAGE = CURRENT_PAGE - 1;
+      displayPage();
+    }
+  });
+
+  // need to fix (TOTAL_PAGES is undefined)
+  $("#next_btn").click(() => {
+    if (CURRENT_PAGE < TOTAL_PAGES) {
+      CURRENT_PAGE = CURRENT_PAGE + 1;
+      displayPage();
+    }
+  });
+
   $("body").on("click", ".backdropBtn", function () {
     $("#backdropImage").html(
       `<img src="http://image.tmdb.org/t/p/w500/${$(this).attr(
@@ -99,6 +125,7 @@ setup = function () {
       )}">`
     );
   });
+
   $("body").on("click", ".backdropBtn", function () {
     $("#backdropTitle").html("BackDrop Image: " + $(this).attr("name"));
   });
