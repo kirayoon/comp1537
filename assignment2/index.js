@@ -41,7 +41,7 @@ function displayPage() {
       TOTAL_PAGES = Math.ceil(result_length / Number(PAGE_SIZE));
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
       let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + PAGE_SIZE;
-      
+
       console.log(CURRENT_PAGE, PAGE_SIZE, start_index, end_index, TOTAL_PAGES);
 
       displayPageNum(TOTAL_PAGES);
@@ -121,12 +121,12 @@ setup = function () {
     $("#backdropImage").html(
       `<img src="http://image.tmdb.org/t/p/w500/${$(this).attr(
         "backdropName"
-      )}">`
+      )}" alt="image not available">`
     );
   });
 
   $("body").on("click", ".backdropBtn", function () {
-    $("#backdropTitle").html("BackDrop Image: " + $(this).attr("name"));
+    $("#backdropTitle").html(`BackDrop Image: ${$(this).attr("name")}`);
   });
 };
 
