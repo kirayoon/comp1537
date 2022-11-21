@@ -15,6 +15,7 @@ function displayPageNum(total_pages) {
     );
   }
 
+  // make buttons visible
   $("#first_btn, #last_btn").css({
     display: "inline-block",
   });
@@ -39,6 +40,11 @@ function displayPage() {
       // set page numbering
       let result_length = data.results.length;
       TOTAL_PAGES = Math.ceil(result_length / Number(PAGE_SIZE));
+
+      if (CURRENT_PAGE > TOTAL_PAGES) {
+        CURRENT_PAGE = TOTAL_PAGES;
+      }
+
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
       let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + PAGE_SIZE;
 
