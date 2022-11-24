@@ -48,8 +48,6 @@ function displayPage() {
       let start_index = PAGE_SIZE * (CURRENT_PAGE - 1);
       let end_index = PAGE_SIZE * (CURRENT_PAGE - 1) + PAGE_SIZE;
 
-      console.log(CURRENT_PAGE, PAGE_SIZE, start_index, end_index, TOTAL_PAGES);
-
       displayPageNum(TOTAL_PAGES);
 
       // display movie data
