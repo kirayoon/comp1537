@@ -1,0 +1,150 @@
+// brew services start mongodb-community@6.0
+// db.unicorns.insert({name: 'Horny',
+//    dob: new Date(1992,2,13,7,47),
+//    loves: ['carrot','papaya'],
+//    weight: 600,
+//    gender: 'm',
+//    vampires: 63});
+// db.unicorns.insert({name: 'Aurora',
+//    dob: new Date(1991, 0, 24, 13, 0),
+//    loves: ['carrot', 'grape'],
+//    weight: 450,
+//    gender: 'f',
+//    vampires: 43});
+// db.unicorns.insert({name: 'Unicrom',
+//    dob: new Date(1973, 1, 9, 22, 10),
+//    loves: ['energon', 'redbull'],
+//    weight: 984,
+//    gender: 'm',
+//    vampires: 182});
+// db.unicorns.insert({name: 'Roooooodles',
+//    dob: new Date(1979, 7, 18, 18, 44),
+//    loves: ['apple'],
+//    weight: 575,
+//    gender: 'm',
+//    vampires: 99});
+// db.unicorns.insert({name: 'Solnara',
+//    dob: new Date(1985, 6, 4, 2, 1),
+//    loves:['apple', 'carrot', 'chocolate'],
+//    weight:550,
+//    gender:'f',
+//    vampires:80});
+// db.unicorns.insert({name:'Ayna',
+//    dob: new Date(1998, 2, 7, 8, 30),
+//    loves: ['strawberry', 'lemon'],
+//    weight: 733,
+//    gender: 'f',
+//    vampires: 40});
+// db.unicorns.insert({name:'Kenny',
+//    dob: new Date(1997, 6, 1, 10, 42),
+//    loves: ['grape', 'lemon'],
+//    weight: 690,
+//    gender: 'm',
+//    vampires: 39});
+// db.unicorns.insert({name: 'Raleigh',
+//    dob: new Date(2005, 4, 3, 0, 57),
+//    loves: ['apple', 'sugar'],
+//    weight: 421,
+//    gender: 'm',
+//    vampires: 2});
+// db.unicorns.insert({name: 'Leia',
+//    dob: new Date(2001, 9, 8, 14, 53),
+//    loves: ['apple', 'watermelon'],
+//    weight: 601,
+//    gender: 'f',
+//    vampires: 33});
+// db.unicorns.insert({name: 'Pilot',
+//    dob: new Date(1997, 2, 1, 5, 3),
+//    loves: ['apple', 'watermelon'],
+//    weight: 650,
+//    gender: 'm',
+//    vampires: 54});
+// db.unicorns.insert({name: 'Nimue',
+//    dob: new Date(1999, 11, 20, 16, 15),
+//    loves: ['grape', 'carrot'],
+//    weight: 540,
+//    gender: 'f'});
+// db.unicorns.insert({name: 'Dunx',
+//    dob: new Date(1976, 6, 18, 18, 18),
+//    loves: ['grape', 'watermelon'],
+//    weight: 704,
+//    gender: 'm',
+//    vampires: 165});
+
+db.unicorns.find().count();
+
+// Q1: find male unicorns that weigh more than 700 pounds
+db.unicorns.find({
+  $and: [
+    {gender: 'm'},
+    {weight: {$gt: 700}}
+  ]
+})
+
+// Q2: find unicorns that have no vampires
+db.unicorns.find({
+  vampires: {$exists: false}
+})
+
+// Q3: find unicorns that like apples or oranges
+db.unicorns.find({
+  loves: {$in: ['apple', 'orange']}
+})
+
+// or
+db.unicorns.find({
+  $or: [
+    {loves: 'apple'},
+    {loves: 'orange'}
+  ]
+})
+
+// Q4: find female unicorns that either love apples or weigh less than 500 pounds
+db.unicorns.find({
+  $and: [
+    {gender: 'f'},
+    {$or: [
+      {loves: 'apple'},
+      {weight: {$lt: 500}}
+    ]}
+  ]
+})
+
+// Q5: decrease unicorn Pilot's number of vampires by 2
+db.unicorns.update(
+  {name: 'Pilot'},
+  {$inc: {vampires: -2}},
+  {multi: true}
+)
+
+// Q6: Add “sugar” to the list of food  unicorn Aurora loves to eat
+db.unicorns.update(
+  {name: 'Aurora'},
+  {$push: {loves: 'sugar'}
+  })
+
+// Q7: give all unicorns vaccine:true
+db.unicorns.update(
+  {},
+  {$set: {vaccine: true}},
+  {multi: true}
+)
+
+// Q8: sort unicorns by weight decreasingly
+db.unicorns.find().sort({weight: -1})
+
+// Q9: sort unicorns by names increasingly and then by vampires decreasingly
+db.unicorns.find().sort(
+  {name: 1},
+  {vampires: -1}
+)
+
+// Q10: find second and third heaviest unicorns
+db.unicorns.find()
+  .sort({weight: -1})
+  .limit(2)
+  .skip(1)
+
+// Q11:
+db.unicorns.find({vampires: {$gt: 50}})
+  .count()
