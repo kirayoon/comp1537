@@ -92,7 +92,9 @@ function setup() {
     }
   });
 
-  $('.nameCheckbox').change(function () {
+  $('#filterBtn').click(function () {});
+
+  $('#nameCheckbox').change(function () {
     if (this.checked) {
       newArr = receivedArr.map((item) => {
         return item.name;
@@ -103,8 +105,6 @@ function setup() {
       console.log('unchecked');
     }
   });
-
-  $('#filterBtn').click(function () {});
 }
 
 $(document).ready(setup);
