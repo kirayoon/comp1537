@@ -35,12 +35,32 @@ function setup() {
   });
 
   $('#foodBtn').click(function () {
-    if ($('#appleCheckbox').is(':checked')) {
-      alert('Apple');
-    }
+    if (
+      $('#appleCheckbox').is(':checked') ||
+      $('#carrotCheckbox').is(':checked')
+    ) {
+      let lovesArr = [];
+      if ($('#appleCheckbox').is(':checked')) {
+        lovesArr.push('apple');
+      }
+      if ($('#carrotCheckbox').is(':checked')) {
+        lovesArr.push('carrot');
+      }
+      $.ajax({
+        url: 'http://localhost:5000/foodUnicorns',
+        type: 'POST',
+        data: {
+          lovesFromHTTPbody: lovesArr,
+        },
+        success: function (data) {
+          receivedArr = data;
+          $('#result').html(JSON.stringify(data));
+        },
+      });
+    }    
   });
 
-  $('#nameFilter').change(function () {
+  $('.nameCheckbox').change(function () {
     if (this.checked) {
       //   alert('checked');
       newArr = receivedArr.map((item) => {

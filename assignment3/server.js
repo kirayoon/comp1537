@@ -72,6 +72,27 @@ app.post('/weightUnicorns', (req, res) => {
   );
 });
 
+app.post('/foodUnicorns', (req, res) => {
+  console.log(req.body);
+  if (req.body.lovesFromHTTPbody.length === 2) {
+    unicornModel.find(
+      { loves: { $all: req.body.lovesFromHTTPbody } },
+      (err, data) => {
+        if (err) console.log(err);
+        res.send(data);
+      }
+    );
+  } else {
+    unicornModel.find(
+      { loves: { $in: req.body.lovesFromHTTPbody } },
+      (err, data) => {
+        if (err) console.log(err);
+        res.send(data);
+      }
+    );
+  }
+});
+
 // need this to run the server
 app.use(express.static('./public'));
 // then go to localhost:5000/assignment3.html to see the page
