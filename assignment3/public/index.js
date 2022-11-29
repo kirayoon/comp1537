@@ -10,7 +10,7 @@ function setup() {
       },
       success: function (data) {
         receivedArr = data;
-        $('#result').html(JSON.stringify(data));
+        $('#result').html('<pre>' + JSON.stringify(data, null, 2) + '<pre>');
       },
     });
 
@@ -18,7 +18,20 @@ function setup() {
   });
 
   $('#unicornWeightBtn').click(function () {
-    alert($('#lowerWeight').val() + ' ~ ' + $('#upperWeight').val());
+    $.ajax({
+      url: 'http://localhost:5000/weightUnicorns',
+      type: 'POST',
+      data: {
+        lowerWeightFromHTTPbody: $('#lowerWeight').val(),
+        upperWeightFromHTTPbody: $('#upperWeight').val(),
+      },
+      success: function (data) {
+        receivedArr = data;
+        $('#result').html(JSON.stringify(data));
+      },
+
+      // alert($('#lowerWeight').val() + ' ~ ' + $('#upperWeight').val());
+    });
   });
 
   $('#foodBtn').click(function () {
@@ -34,9 +47,9 @@ function setup() {
         return item.name;
       });
       console.log(newArr);
-      $('#result').html(JSON.stringify(newArr[0]));
+      $('#result').html(JSON.stringify(newArr));
     } else {
-      alert('unchecked');
+      console.log('unchecked');
     }
   });
 

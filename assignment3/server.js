@@ -37,12 +37,12 @@ const unicornSchema = new mongoose.Schema({
 
 const unicornModel = mongoose.model('unicorns', unicornSchema);
 
-app.get('/unicorns', (req, res) => {
-  unicornModel.find({ gender: 'f' }, (err, data) => {
-    if (err) console.log(err);
-    res.send(data);
-  });
-});
+// app.get('/unicorns', (req, res) => {
+//   unicornModel.find({ gender: 'f' }, (err, data) => {
+//     if (err) console.log(err);
+//     res.send(data);
+//   });
+// });
 
 // need this to parse HTTP body
 app.use(express.urlencoded());
@@ -54,6 +54,22 @@ app.post('/filteredUnicorns', (req, res) => {
     if (err) console.log(err);
     res.send(data);
   });
+});
+
+app.post('/weightUnicorns', (req, res) => {
+  console.log(req.body);
+  unicornModel.find(
+    {
+      weight: {
+        $gte: req.body.lowerWeightFromHTTPbody,
+        $lte: req.body.upperWeightFromHTTPbody,
+      },
+    },
+    (err, data) => {
+      if (err) console.log(err);
+      res.send(data);
+    }
+  );
 });
 
 // need this to run the server
