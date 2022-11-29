@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <h1>Search/Selection</h1>
+    <h2>Search for Unicorn by Name</h2>
+    <label for="unicornNameHTML">Unicorn Name</label>
+    <input type="text" id="unicornNameHTML" placeholder="Enter Unicorn Name" />
+    <button class="submit" id="unicornNameBtn">submit</button>
+
+    <h2>Search for Unicorn by Weight</h2>
+    <label for="lowerWeight">Unicorn Weight</label>
+    <input type="text" id="lowerWeight" placeholder="Enter lower limit" />
+    <label for="upperWeight">and</label>
+    <input type="text" id="upperWeight" placeholder="Enter upper limit" />
+    <button class="submit" id="unicornWeightBtn">submit</button>
+
+    <h2>Search for Unicorn by Favourite Food</h2>
+    <p>Unicorn Food List</p>
+    <label for="appleCheckbox">Apple</label>
+    <input
+      type="checkbox"
+      name="appleCheckbox"
+      id="appleCheckbox"
+      value="apple"
+    />
+    <label for="carrotCheckbox">Carrot</label>
+    <input
+      type="checkbox"
+      name="carrotCheckbox"
+      id="carrotCheckbox"
+      value="carrot"
+    />
+    <button class="submit" id="foodBtn">submit</button>
+    <hr />
+
+    <h2>Filters/Projection</h2>
+
+    <label for="nameFilter">Name</label>
+    <input type="checkbox" id="nameFilter" value="name" />
+
+    <label for="weightFilter">Weight</label>
+    <input type="checkbox" id="weightFilter" value="weight" />
+
+    <button class="submit" id="filterBtn">submit</button>
+    <hr />
+
+    <h1>Results</h1>
+    <p id="result"></p>
+  </body>
+</html>
