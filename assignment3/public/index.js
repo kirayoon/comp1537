@@ -10,11 +10,21 @@ function setup() {
       },
       success: function (data) {
         receivedArr = data;
-        $('#result').html('<pre>' + JSON.stringify(data, null, 2) + '<pre>');
+        result = '';
+        result += '<table>';
+        data.map((aUnicorn) => {
+          result += `<tr>`;
+          for (var field in aUnicorn) {
+            result += `<td>${aUnicorn[field]}</td>`;
+          }
+          result += `</tr>`;
+        });
+        result += '</table>';
+
+        // $('#result').html('<pre>' + JSON.stringify(data, null, 2) + '<pre>');
+        $('#result').html(result);
       },
     });
-
-    // alert('Hello, ' + $('#unicornNameHTML').val());
   });
 
   $('#unicornWeightBtn').click(function () {
@@ -27,10 +37,20 @@ function setup() {
       },
       success: function (data) {
         receivedArr = data;
-        $('#result').html(JSON.stringify(data));
-      },
+        result = '';
+        result += '<table>';
+        data.map((aUnicorn) => {
+          result += `<tr>`;
+          for (var field in aUnicorn) {
+            result += `<td>${aUnicorn[field]}</td>`;
+          }
+          result += `</tr>`;
+        });
+        result += '</table>';
 
-      // alert($('#lowerWeight').val() + ' ~ ' + $('#upperWeight').val());
+        // $('#result').html('<pre>' + JSON.stringify(data, null, 2) + '<pre>');
+        $('#result').html(result);
+      },
     });
   });
 
@@ -54,15 +74,26 @@ function setup() {
         },
         success: function (data) {
           receivedArr = data;
-          $('#result').html(JSON.stringify(data));
+          result = '';
+          result += '<table>';
+          data.map((aUnicorn) => {
+            result += `<tr>`;
+            for (var field in aUnicorn) {
+              result += `<td>${aUnicorn[field]}</td>`;
+            }
+            result += `</tr>`;
+          });
+          result += '</table>';
+
+          // $('#result').html('<pre>' + JSON.stringify(data, null, 2) + '<pre>');
+          $('#result').html(result);
         },
       });
-    }    
+    }
   });
 
   $('.nameCheckbox').change(function () {
     if (this.checked) {
-      //   alert('checked');
       newArr = receivedArr.map((item) => {
         return item.name;
       });
@@ -73,9 +104,7 @@ function setup() {
     }
   });
 
-  $('#filterBtn').click(function () {
-    alert($('#filter').val());
-  });
+  $('#filterBtn').click(function () {});
 }
 
 $(document).ready(setup);

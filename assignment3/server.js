@@ -2,6 +2,7 @@
 // terminal: npm init
 // terminal: npm i express mongoose
 // terminal: npm i nodemon
+// terminal: sudo npm i nodemon -g (for mac)
 // terminal: nodemon /server.js
 
 const express = require('express');
