@@ -1,6 +1,6 @@
 receivedArr = [];
 
-function setup() {
+function searchName() {
   $('#unicornNameBtn').click(function () {
     $.ajax({
       url: 'http://localhost:5000/filteredUnicorns',
@@ -26,7 +26,9 @@ function setup() {
       },
     });
   });
+}
 
+function serachWeight() {
   $('#unicornWeightBtn').click(function () {
     $.ajax({
       url: 'http://localhost:5000/weightUnicorns',
@@ -53,7 +55,9 @@ function setup() {
       },
     });
   });
+}
 
+function searchFood() {
   $('#foodBtn').click(function () {
     if (
       $('#appleCheckbox').is(':checked') ||
@@ -91,7 +95,9 @@ function setup() {
       });
     }
   });
+}
 
+function filterBtn() {
   $('#filterBtn').click(function () {
     result = '';
     result += '<table>';
@@ -117,6 +123,13 @@ function setup() {
     result += '</table>';
     $('#result').html(result);
   });
+}
+
+function setup() {
+  searchName();
+  serachWeight();
+  searchFood();
+  filterBtn();
 }
 
 $(document).ready(setup);
