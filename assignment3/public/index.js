@@ -92,18 +92,30 @@ function setup() {
     }
   });
 
-  $('#filterBtn').click(function () {});
-
-  $('#nameCheckbox').change(function () {
-    if (this.checked) {
-      newArr = receivedArr.map((item) => {
-        return item.name;
-      });
-      console.log(newArr);
-      $('#result').html(JSON.stringify(newArr));
-    } else {
-      console.log('unchecked');
-    }
+  $('#filterBtn').click(function () {
+    result = '';
+    result += '<table>';
+    receivedArr.map((aUnicorn) => {
+      result += `<tr>`;
+      if (
+        $('#nameFilter').is(':checked') &&
+        $('#weightFilter').is(':checked')
+      ) {
+        result += `<td>${aUnicorn['name']}</td>`;
+        result += `<td>${aUnicorn['weight']}</td>`;
+      } else if ($('#nameFilter').is(':checked')) {
+        result += `<td>${aUnicorn['name']}</td>`;
+      } else if ($('#weightFilter').is(':checked')) {
+        result += `<td>${aUnicorn['weight']}</td>`;
+      } else {
+        for (var field in aUnicorn) {
+          result += `<td>${aUnicorn[field]}</td>`;
+        }
+      }
+      result += `</tr>`;
+    });
+    result += '</table>';
+    $('#result').html(result);
   });
 }
 
