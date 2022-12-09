@@ -162,17 +162,18 @@ function genderSelect() {
 
 // console log 'clicked' if detailsBtn is clicked
 $(document).on('click', '.showDetailsBtn', function () {
-  console.log('clicked');
   $('.unicornDetails').css({
     display: 'block',
   });
   $('.showDetailsBtn').css({
     display: 'none',
   });
+  $('.hideDetailsBtn').css({
+    display: 'block',
+  });
 });
 
 $(document).on('click', '.hideDetailsBtn', function () {
-  console.log('clicked');
   $('.showDetailsBtn').css({
     display: 'block',
   });
