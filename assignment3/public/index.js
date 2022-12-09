@@ -136,15 +136,12 @@ function genderSelect() {
       success: function (data) {
         receivedArr = data;
         result = '';
-        result += '<table>';
+        result += '<ul>';
         data.map((aUnicorn) => {
-          result += `<tr>`;
-          for (var field in aUnicorn) {
-            result += `<td>${aUnicorn[field]}</td>`;
-          }
-          result += `</tr>`;
+          result += `<li>${aUnicorn['name']}</li>`;
         });
-        result += '</table>';
+
+        // $('#result').html(`<br>` + JSON.stringify(data));
 
         $('#result').html(result);
       },
