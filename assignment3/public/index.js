@@ -171,6 +171,19 @@ $(document).on('click', '.showDetailsBtn', function () {
   });
 });
 
+$(document).on('click', '.hideDetailsBtn', function () {
+  console.log('clicked');
+  $('.showDetailsBtn').css({
+    display: 'block',
+  });
+  $('.unicornDetails').css({
+    display: 'none',
+  });
+  $('.hideDetailsBtn').css({
+    display: 'none',
+  });
+});
+
 function setup() {
   searchName();
   searchWeight();
