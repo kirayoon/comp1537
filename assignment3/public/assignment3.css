@@ -1,0 +1,12 @@
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.red {
+  background-color: tomato;
+}

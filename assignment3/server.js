@@ -73,6 +73,17 @@ app.post('/weightUnicorns', (req, res) => {
   );
 });
 
+app.post('/genderUnicorns', (req, res) => {
+  console.log(req.body);
+  unicornModel.find(
+    { gender: req.body.unicornGenderFromHTTPbody },
+    (err, data) => {
+      if (err) console.log(err);
+      res.send(data);
+    }
+  );
+});
+
 app.post('/foodUnicorns', (req, res) => {
   console.log(req.body);
   if (req.body.lovesFromHTTPbody.length === 2) {
