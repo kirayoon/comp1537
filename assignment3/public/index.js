@@ -139,9 +139,18 @@ function genderSelect() {
         result += '<ul>';
         data.map((aUnicorn) => {
           result += `<li>${aUnicorn['name']}</li>`;
+          result += `<button class='detailsBtn'>Details</button>`;
+          result += `<ul><li>dob: ${aUnicorn['dob']}</li></ul>`;
+          result += `<ul><li>loves: `;
+          aUnicorn['loves'].map((aLove) => {
+            result += `<ul><li>${aLove}</li></ul>`;
+          });
+          result += `</li></ul>`;
+          result += `<ul><li>weight: ${aUnicorn['weight']}</li></ul>`;
+          result += `<ul><li>gender: ${aUnicorn['gender']}</li></ul>`;
+          result += `<ul><li>vampires: ${aUnicorn['vampires']}</li></ul>`;
         });
-
-        // $('#result').html(`<br>` + JSON.stringify(data));
+        result += '</ul>';
 
         $('#result').html(result);
       },
