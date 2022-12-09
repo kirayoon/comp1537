@@ -139,7 +139,9 @@ function genderSelect() {
         result += '<ul>';
         data.map((aUnicorn) => {
           result += `<li>${aUnicorn['name']}</li>`;
-          result += `<button class='detailsBtn'>Details</button>`;
+          result += `<button class='showDetailsBtn'>show details</button>`;
+          result += `<div class='unicornDetails' style="display:none;">`;
+          result += `<button class="hideDetailsBtn">hide details</button>`;
           result += `<ul><li>dob: ${aUnicorn['dob']}</li></ul>`;
           result += `<ul><li>loves: `;
           aUnicorn['loves'].map((aLove) => {
@@ -148,7 +150,7 @@ function genderSelect() {
           result += `</li></ul>`;
           result += `<ul><li>weight: ${aUnicorn['weight']}</li></ul>`;
           result += `<ul><li>gender: ${aUnicorn['gender']}</li></ul>`;
-          result += `<ul><li>vampires: ${aUnicorn['vampires']}</li></ul>`;
+          result += `<ul><li>vampires: ${aUnicorn['vampires']}</li></ul></div>`;
         });
         result += '</ul>';
 
@@ -157,6 +159,17 @@ function genderSelect() {
     });
   });
 }
+
+// console log 'clicked' if detailsBtn is clicked
+$(document).on('click', '.showDetailsBtn', function () {
+  console.log('clicked');
+  $('.unicornDetails').css({
+    display: 'block',
+  });
+  $('.showDetailsBtn').css({
+    display: 'none',
+  });
+});
 
 function setup() {
   searchName();
