@@ -1,5 +1,8 @@
 # COMP 1537 - Web Development
 
+
+Netlify link: https://astonishing-palmier-3622f3.netlify.app/
+
 ### Folder Structure
 
 ```
@@ -43,8 +46,4 @@ midterm/
 index.html
 lab9.mongodb
 README.md
-```
-
-```
-Netlify link: https://astonishing-palmier-3622f3.netlify.app/
 ```
